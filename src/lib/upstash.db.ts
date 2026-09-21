@@ -454,16 +454,16 @@ export class UpstashRedisStorage implements IStorage {
 
 // 单例 Upstash Redis 客户端
 function getUpstashRedisClient(): Redis {
-  const globalKey = Symbol.for('__MOONTV_UPSTASH_REDIS_CLIENT__');
+  const globalKey = Symbol.for('__VIDEO_LIBRARY_UPSTASH_REDIS_CLIENT__');
   let client: Redis | undefined = (global as any)[globalKey];
 
   if (!client) {
-    const upstashUrl = process.env.UPSTASH_URL;
-    const upstashToken = process.env.UPSTASH_TOKEN;
+    const upstashUrl = process.env.UPSTASH_URL || process.env.KV_REST_API_URL;
+    const upstashToken = process.env.UPSTASH_TOKEN || process.env.KV_REST_API_TOKEN;
 
     if (!upstashUrl || !upstashToken) {
       throw new Error(
-        'UPSTASH_URL and UPSTASH_TOKEN env variables must be set'
+        'Upstash REST URL and token environment variables must be set'
       );
     }
 
