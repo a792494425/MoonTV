@@ -127,6 +127,7 @@ function shouldSkipAuth(pathname: string): boolean {
     '/screenshot.png',
     '/api/m3u8',
     '/api/image-proxy',
+    '/api/open-media',
   ];
 
   return skipPaths.some((path) => pathname.startsWith(path));
