@@ -1,4 +1,9 @@
 {
-    "cache_time": 7200,
-    "api_site": {}
+  "cache_time": 7200,
+  "api_site": {
+    "openmedia": {
+      "name": "Open Media",
+      "api": "https://moon-tv-topaz-beta-74.vercel.app/api/open-media"
+    }
+  }
 }
